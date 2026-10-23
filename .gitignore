@@ -1,0 +1,9 @@
+# Local editor state
+.DS_Store
+*.asv
+*~
+
+# Outputs written by the script
+qsm_output/*
+!qsm_output/.gitkeep
+medi_v2/
