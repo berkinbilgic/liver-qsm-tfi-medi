@@ -11,7 +11,13 @@ The last cell compares the two maps in the liver.
 
 ## Data (Git LFS)
 
-The data in `data/` are stored with Git LFS. Install [git-lfs](https://git-lfs.com) before cloning, or run `git lfs pull` after cloning.
+The data in `data/` are stored with Git LFS. Install [git-lfs](https://git-lfs.com) before cloning, or run `git lfs pull` after cloning:
+
+```
+git clone https://github.com/berkinbilgic/liver-qsm-tfi-medi.git
+```
+
+GitHub's **Download ZIP** contains only the small LFS pointer files, not the data. Use `git clone`, or download each file in `data/` from its GitHub page.
 
 - `exp100926_mgre_PT_imoco_softgating_fw.mat`: complex echoes (`img_cplx`), water, fat, R2* and field map (`fieldHz`)
 - `exp100926_mgre_fb_coilsensmask.mat`: coil sensitivities (`receive`), used only for the body mask

@@ -13,10 +13,19 @@ clc
 
 restoredefaultpath
 
-addpath(genpath(fullfile(fileparts(mfilename('fullpath')), 'functions')))
-addpath(genpath(fullfile(fileparts(mfilename('fullpath')), 'external', 'NIfTI_20140122')))
-
 script_directory = fileparts(mfilename('fullpath'));
+
+% running a section of an unsaved file executes a temporary copy (Editor_xxxxx
+% in tempdir), so fall back to the current folder, which should be the repository
+if ~isfile(fullfile(script_directory, 'data', 'liver_mask.mat'))
+    script_directory = pwd;
+end
+
+assert(isfile(fullfile(script_directory, 'data', 'liver_mask.mat')), 'data/ not found in %s: run the script from the repository folder', script_directory)
+
+addpath(genpath(fullfile(script_directory, 'functions')))
+addpath(genpath(fullfile(script_directory, 'external', 'NIfTI_20140122')))
+
 addpath(script_directory)
 
 % input_mat = '/autofs/space/daisy_002/users/yuting/20261004_bch/data4QSM/imoco_softgating_TV_PVbin.mat';
